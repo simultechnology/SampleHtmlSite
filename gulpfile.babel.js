@@ -22,7 +22,7 @@ const postcssOption = [
 ]
 
 gulp.task('sass', (done) => {
-  return gulp.src('./src/sass/common.scss')
+  return gulp.src('./src/sass/**')
     .pipe(sass())
     .pipe(postcss(postcssOption))
     .pipe(gulp.dest('./dist/css/'))
