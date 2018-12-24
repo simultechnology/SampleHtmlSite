@@ -11,6 +11,19 @@ p {
   line-height: 2;
 }
 
+body > section {
+  h1 {
+    text-align: center;
+    font-weight: normal;
+    margin: 0 0 60px;
+  }
+  padding: 60px 0;
+}
+
+body > section:nth-of-type(odd) {
+  background: #fff;
+}
+
 .container {
   width: 90%;
   margin: 0 auto;
@@ -21,54 +34,96 @@ header {
     font-size: 28px;
     font-weight: normal;
   }
+
+  #menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    color: #ffffff;
+    display: none;
+
+    &.shown {
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 10px 20px;
+    }
+
+    li {
+      line-height: 2;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+  }
+
   #open_menu {
     float: right;
     font-size: 24px;
     cursor: pointer;
   }
-}
 
-.features {
-
-  h1 {
-    text-align: center;
-    font-weight: normal;
-    margin: 0 0 60px;
+  #close_menu {
+    padding: 15px;
+    float: right;
+    cursor: pointer;
   }
-
-  padding: 60px 0;
-  background: #fff;
 
 }
 
 .feature {
-
   img {
     width: 100%;
   }
 
+  &:not(:last-child) {
+    margin-bottom: 60px;
+  }
+
 }
 
-.feature:not(:last-child) {
-  margin-bottom: 60px;
+.news-item {
+  img {
+    width: 100%;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 60px;
+  }
 }
 
-nav {
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+.how-to-use {
+  iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
   }
 
-  li {
-    display: inline-block;
-  }
+  /* 100% : x% = 16 : 9 */
 
-  a {
-    display: block;
-    padding: 6px 12px;
-    text-decoration: none;
+  .iframe-wrapper {
+    //background: pink;
+    /* %指定の場合、親領域の幅に対しての割合 */
+    //padding-bottom: 25%;
+    padding-bottom: 56.25%;
+    height: 0;
+    position: relative;
   }
+}
+
+footer {
+  text-align: center;
+  padding: 60px 0;
+  color: #cccccc;
+
 }
 
 .sample {
@@ -81,10 +136,13 @@ nav {
 
 .foo { flex: 1;
 }
+
 .bar {
   flex: 1 1; }
+
 .foz {
   flex: 1 1 0;
 }
+
 .baz {
-  flex: 1 1 0px; }
+  flex: 1 1 0; }
