@@ -23,5 +23,6 @@ module.exports = {
         use: ['url-loader']
       }
     ]
-  }
+  },
+  devtool: 'source-map'
 }

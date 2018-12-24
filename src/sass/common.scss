@@ -11,24 +11,6 @@ p {
   line-height: 2;
 }
 
-body > section {
-  h1 {
-    text-align: center;
-    font-weight: normal;
-    margin: 0 0 60px;
-  }
-  padding: 60px 0;
-}
-
-body > section:nth-of-type(odd) {
-  background: #fff;
-}
-
-.container {
-  width: 90%;
-  margin: 0 auto;
-}
-
 header {
   h1 {
     font-size: 28px;
@@ -41,7 +23,7 @@ header {
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.9);
-    color: #ffffff;
+    color: #fff;
     display: none;
 
     &.shown {
@@ -62,7 +44,6 @@ header {
       text-decoration: none;
       color: inherit;
     }
-
   }
 
   #open_menu {
@@ -76,7 +57,25 @@ header {
     float: right;
     cursor: pointer;
   }
+}
 
+body > section {
+  h1 {
+    text-align: center;
+    font-weight: normal;
+    margin: 0 0 60px;
+  }
+
+  padding: 60px 0;
+}
+
+body > section:nth-of-type(odd) {
+  background: #fff;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .feature {
@@ -87,7 +86,6 @@ header {
   &:not(:last-child) {
     margin-bottom: 60px;
   }
-
 }
 
 .news-item {
@@ -111,6 +109,7 @@ header {
 
   .iframe-wrapper {
     //background: pink;
+
     /* %指定の場合、親領域の幅に対しての割合 */
     //padding-bottom: 25%;
     padding-bottom: 56.25%;
@@ -122,8 +121,76 @@ header {
 footer {
   text-align: center;
   padding: 60px 0;
-  color: #cccccc;
+  color: #ccc;
+}
 
+@media (min-width: 570px) {
+  .feature {
+    overflow: hidden;
+
+    img {
+      width: 50%;
+    }
+
+    p {
+      width: 45%;
+    }
+
+    &:nth-of-type(odd) p {
+      float: right;
+      padding-left: 5%;
+    }
+
+    &:nth-of-type(even) p {
+      float: left;
+      padding-right: 5%;
+    }
+  }
+
+  .news {
+    .flex {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .news-item {
+    width: 30%;
+  }
+}
+
+@media (min-width: 912px) {
+  .container {
+    width: 820px;
+  }
+
+  header {
+    #open_menu {
+      display: none;
+    }
+
+    #close_menu {
+      display: none;
+    }
+
+    #menu {
+      display: block;
+      position: static;
+      background: transparent;
+      color: #333333;
+
+      ul {
+        padding: 0;
+        float: right;
+      }
+
+      li {
+        display: inline-block;
+        width: 60px;
+        text-align: center;
+      }
+    }
+  }
 }
 
 .sample {
@@ -134,15 +201,18 @@ footer {
   display: grid;
 }
 
-.foo { flex: 1;
+.foo {
+  flex: 1;
 }
 
 .bar {
-  flex: 1 1; }
+  flex: 1 1;
+}
 
 .foz {
   flex: 1 1 0;
 }
 
 .baz {
-  flex: 1 1 0; }
+  flex: 1 1 0;
+}
