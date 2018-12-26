@@ -11,6 +11,8 @@ import imageminPngquant from 'imagemin-pngquant'
 import imageminMozjpeg from 'imagemin-mozjpeg'
 import fs from 'fs'
 import browserSync from 'browser-sync'
+import webpackStream from 'webpack-stream'
+import webpack from 'webpack'
 
 const autoprefixerOption = {
   grid: true
@@ -90,4 +92,16 @@ gulp.task('watch', (done) => {
   gulp.watch('./dist/**/*', browserReload)
 })
 
-gulp.task('default', gulp.series('serve', 'watch'))
+// webpackの設定ファイルの読み込み
+const webpackConfig = require("./webpack.config");
+
+// タスクの定義。 ()=> の部分はfunction() でも可
+gulp.task('webpack', () => {
+  // ☆ webpackStreamの第2引数にwebpackを渡す☆
+  return webpackStream(webpackConfig, webpack)
+    .pipe(gulp.dest("dist"));
+});
+
+gulp.task('default', gulp.series(
+  gulp.parallel('sass', 'imagemin', 'ejs'),
+  'webpack', 'serve', 'watch'))
