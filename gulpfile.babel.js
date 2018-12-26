@@ -102,6 +102,9 @@ gulp.task('webpack', () => {
     .pipe(gulp.dest("dist"));
 });
 
-gulp.task('default', gulp.series(
-  gulp.parallel('sass', 'imagemin', 'ejs'),
-  'webpack', 'serve', 'watch'))
+gulp.task('default', gulp.parallel(
+  'imagemin',
+  'webpack',
+  gulp.series(
+    gulp.parallel('sass', 'ejs'),
+    'serve', 'watch')))
