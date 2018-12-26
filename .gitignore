@@ -2,7 +2,5 @@
 .idea
 node_modules
 
-dist
-
 *iml
 
