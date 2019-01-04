@@ -1,6 +1,7 @@
 <%
 var pageTitle
 var key
+var css
 %>
 
 <head>
@@ -43,4 +44,6 @@ var key
       content="<%= config.publicPath %>/img/facebook.png"
   >
   <link rel="stylesheet" href="css/common.css">
+  <% if(css) {%>
+  <link rel="stylesheet" href="css/<%= css %>.css"><% } %>
 </head>

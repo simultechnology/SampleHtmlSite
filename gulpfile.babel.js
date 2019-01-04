@@ -73,7 +73,8 @@ gulp.task('ejs', () => {
 })
 
 const browserSyncOption = {
-  server: './dist'
+  server: './dist',
+  directory: true
 }
 
 gulp.task('serve', (done) => {
@@ -84,6 +85,7 @@ gulp.task('serve', (done) => {
 gulp.task('watch', (done) => {
   gulp.watch('./src/sass/**/*.scss', gulp.series('sass'))
   gulp.watch('./src/html/**/*.ejs', gulp.series('ejs'))
+  gulp.watch('./src/images/**/**', gulp.series('imagemin'))
   const browserReload = (done) => {
     console.log('reload!')
     browserSync.reload()
@@ -93,13 +95,13 @@ gulp.task('watch', (done) => {
 })
 
 // webpackの設定ファイルの読み込み
-const webpackConfig = require("./webpack.config");
+const webpackConfig = require('./webpack.config');
 
 // タスクの定義。 ()=> の部分はfunction() でも可
 gulp.task('webpack', () => {
   // ☆ webpackStreamの第2引数にwebpackを渡す☆
   return webpackStream(webpackConfig, webpack)
-    .pipe(gulp.dest("dist"));
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('default', gulp.parallel(
