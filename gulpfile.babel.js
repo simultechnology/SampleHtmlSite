@@ -74,6 +74,7 @@ gulp.task('ejs', () => {
 
 const browserSyncOption = {
   server: './dist',
+  port: 30000,
   directory: true
 }
 
@@ -95,14 +96,12 @@ gulp.task('watch', (done) => {
 })
 
 // webpackの設定ファイルの読み込み
-const webpackConfig = require('./webpack.config');
+const webpackConfig = require('./webpack.config')
 
-// タスクの定義。 ()=> の部分はfunction() でも可
 gulp.task('webpack', () => {
-  // ☆ webpackStreamの第2引数にwebpackを渡す☆
   return webpackStream(webpackConfig, webpack)
-    .pipe(gulp.dest('dist'));
-});
+    .pipe(gulp.dest('dist/js'))
+})
 
 gulp.task('default', gulp.parallel(
   'imagemin',
