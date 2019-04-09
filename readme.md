@@ -6,5 +6,4 @@ following commands are both required
 
 ```
 npm run dev // start webpack
-npx gulp
 ```

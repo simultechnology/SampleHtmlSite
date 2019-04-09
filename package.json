@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "fmt": "standard ./src/**/*.js --fix && stylelint ./src/sass --fix",
     "prod": "webpack --mode production",
-    "dev": "webpack --mode development -w"
+    "dev": "gulp & webpack --mode development -w"
   },
   "keywords": [],
   "author": "",
